@@ -1,5 +1,5 @@
 // Variables
-var DateTime = luxon.DateTime;
+var DateTime = luxon.DateTime
 var currentDate = DateTime.local().toLocaleString(DateTime.DATE_FULL)
 
 // current date opens at page launch
