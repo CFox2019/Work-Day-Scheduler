@@ -14,25 +14,34 @@ var businessHours = [
     currentDate.set({hour: 15, minute: 0}),
     currentDate.set({hour: 16, minute: 0}),
     currentDate.set({hour: 17, minute: 0}),
-    currentDate.set({hour: 18, minute: 0}),
+    currentDate.set({hour: 18, minute: 0})
 ]
 
-var b = currentDate.set({hour: 13, minute: 0}).toLocaleString(DateTime.TIME_SIMPLE)
-console.log(b)
-
-// current date opens at page launch
+// current date displayed in header
 $('#currentDay').text(currentDateString)
 
 // Retrieve standard business hours
-// If hours are outside of business hours, do not show
+businessHours.forEach(element => {
+    var containerRow = $('<div>', {id: `hour-${element.hour}`, class: "row"})
 
+    var hourCol = $('<div>', {class: 'hour col-md-1'})
+    hourCol.text(element.toLocaleString(DateTime.TIME_SIMPLE))
 
-// Time blocks should be color-coded to indicate
-// whether it is in the past, present, or future                                         
-// If time blocks are in the past, color should be grey,
-// If time block is present time, show in red,
-// If time block is in the future, show in green
+    var textareaCol = $('<textarea>', {class: 'past col-md-10 textFill'})
+    // Logic:
+    //   - if there are no saved entries for this time, and time is in the past, color area should be gray
+    //   - if there is a saved entry for this time, show it and apply red to areas color
+    //   - if there are no saved entries for this time, and the time is in the future, show green color in area
 
+    var buttonCol = $('<button>', {class: 'saveBtn col-md-1 save btn'})
+    buttonCol.text('SAVE')
+
+    containerRow.append(hourCol)
+    containerRow.append(textareaCol)
+    containerRow.append(buttonCol)
+
+    $('#table').append(containerRow)
+});
 
 // Clicking into a time block allows an event to be entered
 
