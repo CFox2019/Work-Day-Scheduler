@@ -20,12 +20,12 @@ var businessHours = [
 // current date displayed in header
 $('#currentDay').text(currentDateString)
 
-// Retrieve standard business hours
+// Retrieve standard business hours and add a row to each hour
 businessHours.forEach(element => {
     var containerRow = $('<div>', {id: `hour-${element.hour}`, class: "row"})
 
     var hourCol = $('<div>', {class: 'hour col-md-1'})
-    hourCol.text(element.toLocaleString(DateTime.TIME_SIMPLE))
+    hourCol.text(element.toFormat('ha'))
 
     var textareaCol = $('<textarea>', {class: 'past col-md-10 textFill'})
     // Logic:
