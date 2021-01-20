@@ -17,6 +17,7 @@ var businessHours = [
     currentDate.set({hour: 18, minute: 0})
 ]
 
+
 // current date displayed in header
 $('#currentDay').text(currentDateString)
 
@@ -27,11 +28,17 @@ businessHours.forEach(element => {
     var hourCol = $('<div>', {class: 'hour col-md-1'})
     hourCol.text(element.toFormat('ha'))
 
-    var textareaCol = $('<textarea>', {class: 'past col-md-10 textFill'})
-    // Logic:
-    //   - if there are no saved entries for this time, and time is in the past, color area should be gray
-    //   - if there is a saved entry for this time, show it and apply red to areas color
-    //   - if there are no saved entries for this time, and the time is in the future, show green color in area
+    var textareaCol = $('<textarea>', {class: 'col-md-10 textFill'})
+    //   - if time is in the past, color area should be gray
+    if (element.hour < currentDate.hour) {
+        textareaCol.addClass('past')
+    //   - apply red to areas color when it is the current hour
+    } else if (element.hour === currentDate.hour) {
+        textareaCol.addClass('present')
+    //   - if time is in the future, show green color in area
+    } else if (element.hour > currentDate.hour) {
+        textareaCol.addClass('future')
+    }
 
     var buttonCol = $('<button>', {class: 'saveBtn col-md-1 save btn'})
     buttonCol.text('SAVE')
@@ -45,7 +52,9 @@ businessHours.forEach(element => {
 
 // Clicking into a time block allows an event to be entered
 
+
 // Clicking the save button for that time block will save that
 // event in local storage
+
 
 // Event should still be on the page when the page is refreshed
