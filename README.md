@@ -18,4 +18,4 @@ You can begin by clicking in the text area next to the desired hour. Type in any
 
 * [LinkedIn](https://www.linkedin.com/in/cdfox/)
 * [GitHub-Repositories](https://github.com/CFox2019/Work-Day-Scheduler)
-* [GitHub-live-link] (https://cfox2019.github.io/Work-Day-Scheduler/)
+* [GitHub-live-link](https://cfox2019.github.io/Work-Day-Scheduler/)
