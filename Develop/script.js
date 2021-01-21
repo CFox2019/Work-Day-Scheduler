@@ -44,7 +44,7 @@ businessHours.forEach(element => {
     }
 
     var buttonCol = $('<button>', {class: 'saveBtn col-md-1 save btn'})
-    buttonCol.text('SAVE')
+    buttonCol.append($('<i>', {class: 'fas fa-lock'}))
     buttonCol.on('click', () => {
         var textareaEntry = textareaCol.val()
         dayEntries[hour] = textareaEntry
