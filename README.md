@@ -13,6 +13,7 @@ You can begin by clicking in the text area next to the desired hour. Type in any
 ### Screenshot
 
 ![Work Day Scheduler](Assets/work-day-scheduler.png)
+![Work Day Scheduler 2](Assets/work-day-scheduler-2.png)
 
 ## Links:
 
